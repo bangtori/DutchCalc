@@ -9,11 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var logoImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        //border 없애기
+        logoImageView.layer.borderColor = CGColor(red: 1, green: 1, blue: 1, alpha: 1)
+        logoImageView.layer.borderWidth = 5
     }
-
-
 }
 
