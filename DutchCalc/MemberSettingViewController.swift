@@ -11,8 +11,9 @@ class MemberSettingViewController: UIViewController {
 
     @IBOutlet weak var explanationLabel: UILabel!
     @IBOutlet weak var inputTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
-    
+    var members:[Member]=[]
     override func viewDidLoad() {
         super.viewDidLoad()
         initExplabationLabel()
@@ -24,4 +25,24 @@ class MemberSettingViewController: UIViewController {
         explanationLabel.lineBreakMode = .byCharWrapping
         explanationLabel.numberOfLines = 0
     }
+    @IBAction func addMember(_ sender: UIButton) {
+        let name = inputTextField?.text
+        members.append(Member(name: name!, price: 0))
+        print(members)
+        tableView.reloadData()
+    }
+}
+
+extension MemberSettingViewController : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return members.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath)
+        let member = self.members[indexPath.row]
+        cell.textLabel?.text = member.name
+        return cell
+    }
+    
 }

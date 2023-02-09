@@ -15,6 +15,7 @@
 		533117D32990E79200854571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 533117D12990E79200854571 /* LaunchScreen.storyboard */; };
 		533117DB2991298600854571 /* Icon-1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 533117DA2991298600854571 /* Icon-1024.png */; };
 		533117E129936F2400854571 /* MemberSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533117E029936F2400854571 /* MemberSettingViewController.swift */; };
+		533117E32994DD5E00854571 /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 533117E22994DD5E00854571 /* Member.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		533117D42990E79200854571 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		533117DA2991298600854571 /* Icon-1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-1024.png"; sourceTree = "<group>"; };
 		533117E029936F2400854571 /* MemberSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberSettingViewController.swift; sourceTree = "<group>"; };
+		533117E22994DD5E00854571 /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				533117D42990E79200854571 /* Info.plist */,
 				533117DA2991298600854571 /* Icon-1024.png */,
 				533117E029936F2400854571 /* MemberSettingViewController.swift */,
+				533117E22994DD5E00854571 /* Member.swift */,
 			);
 			path = DutchCalc;
 			sourceTree = "<group>";
@@ -149,6 +152,7 @@
 				533117C72990E78F00854571 /* AppDelegate.swift in Sources */,
 				533117C92990E78F00854571 /* SceneDelegate.swift in Sources */,
 				533117E129936F2400854571 /* MemberSettingViewController.swift in Sources */,
+				533117E32994DD5E00854571 /* Member.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

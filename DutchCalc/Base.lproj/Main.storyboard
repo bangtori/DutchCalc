@@ -139,6 +139,9 @@
                                         <rect key="frame" x="325.5" y="0.0" width="48.5" height="34"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="추가"/>
+                                        <connections>
+                                            <action selector="addMember:" destination="CI2-xE-jNS" eventType="touchUpInside" id="1Mh-CG-l2q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -151,6 +154,29 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="IxT-nL-ifg">
                                 <rect key="frame" x="20" y="259" width="374" height="403"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MemberCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MemberCell" textLabel="KEl-cR-NT1" style="IBUITableViewCellStyleDefault" id="rN6-ow-Fp7">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rN6-ow-Fp7" id="PyW-yO-lKj">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="KEl-cR-NT1">
+                                                    <rect key="frame" x="20" y="0.0" width="334" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="CI2-xE-jNS" id="hBg-tu-g8d"/>
+                                    <outlet property="delegate" destination="CI2-xE-jNS" id="h4Z-K3-rdK"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRI-bq-tfe">
                                 <rect key="frame" x="167" y="702" width="80" height="60"/>
@@ -188,6 +214,7 @@
                     <connections>
                         <outlet property="explanationLabel" destination="mD1-ot-9Z5" id="lBC-Ue-57t"/>
                         <outlet property="inputTextField" destination="A8B-FZ-ULc" id="NCd-ft-O2d"/>
+                        <outlet property="tableView" destination="IxT-nL-ifg" id="gXK-S3-cUM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T9f-OU-SUa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
