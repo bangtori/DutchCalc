@@ -28,6 +28,7 @@ class MemberSettingViewController: UIViewController {
     @IBAction func addMember(_ sender: UIButton) {
         let name = inputTextField?.text
         members.append(Member(name: name!, price: 0))
+        inputTextField.text = ""
         tableView.reloadData()
     }
 }
