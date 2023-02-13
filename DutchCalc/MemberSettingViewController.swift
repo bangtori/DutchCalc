@@ -28,7 +28,6 @@ class MemberSettingViewController: UIViewController {
     @IBAction func addMember(_ sender: UIButton) {
         let name = inputTextField?.text
         members.append(Member(name: name!, price: 0))
-        print(members)
         tableView.reloadData()
     }
 }
@@ -39,10 +38,18 @@ extension MemberSettingViewController : UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "MemberCell", for: indexPath) as? MemberCell else {
+            return UITableViewCell()
+        }
         let member = self.members[indexPath.row]
-        cell.textLabel?.text = member.name
+        cell.nameLabel.text = member.name
+        cell.removeBtn.tag = indexPath.row
+        cell.removeBtn.addTarget(self, action: #selector(removeBtnTapped(sender:)), for: .touchUpInside)
         return cell
     }
-    
+    @objc func removeBtnTapped(sender: UIButton){
+        members.remove(at: sender.tag)
+        tableView.reloadData()
+    }
 }
+
