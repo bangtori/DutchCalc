@@ -13,11 +13,15 @@ class MemberSettingViewController: UIViewController {
     @IBOutlet weak var inputTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     
-    var members:[Member]=[]
+    var members = [Member](){
+        didSet{
+            self.saveMembers()
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         initExplabationLabel()
-
+        loadData()
         // Do any additional setup after loading the view.
     }
     func initExplabationLabel(){
@@ -30,6 +34,25 @@ class MemberSettingViewController: UIViewController {
         members.append(Member(name: name!, price: 0))
         inputTextField.text = ""
         tableView.reloadData()
+    }
+    func saveMembers(){
+        let data = self.members.map{
+            [
+                "name" : $0.name,
+                "price" : $0.price
+            ]
+        }
+        let userDefaults = UserDefaults.standard
+        userDefaults.set(data, forKey: "members")
+    }
+    func loadData(){
+        let userDefaults = UserDefaults.standard
+        guard let data = userDefaults.object(forKey: "members") as? [[String:Any]] else { return }
+        self.members = data.compactMap{
+            guard let name = $0["name"] as? String else {return nil}
+            guard let price = $0["price"] as? Int else {return nil}
+            return Member(name: name, price: price)
+        }
     }
 }
 
